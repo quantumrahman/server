@@ -1,5 +1,9 @@
 import { Router } from 'express';
 
+import { facilityCreate } from '../controllers/facility.controller.js';
+import validateMiddleware from '../middlewares/validate.middleware.js';
+import validateSchema from '../validators/facility.validate.js';
+
 const facilityRoute = Router();
 
 facilityRoute.get('/facilities', (req, res) =>
@@ -10,8 +14,10 @@ facilityRoute.get('/facilities/:id', (req, res) =>
     res.status(200).json({ success: true, message: 'GET -> Details facility' })
 );
 
-facilityRoute.post('/facilities', (req, res) =>
-    res.status(200).json({ success: true, message: 'POST -> Create Facility' })
+facilityRoute.post(
+    '/facilities',
+    validateMiddleware(validateSchema),
+    facilityCreate
 );
 
 facilityRoute.patch('/facilities/:id', (req, res) =>
