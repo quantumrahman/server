@@ -1,0 +1,19 @@
+{
+    "name": "sportnest-backend",
+    "version": "1.0.0",
+    "description": "",
+    "license": "ISC",
+    "author": "Rakibul Rahman",
+    "type": "module",
+    "main": "index.js",
+    "scripts": {
+        "format": "prettier --write .",
+        "format:check": "prettier --check ."
+    },
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "eslint": "^10.5.0",
+        "globals": "^17.6.0",
+        "prettier": "^3.8.4"
+    }
+}
