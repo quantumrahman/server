@@ -17,3 +17,13 @@ export const createFacility = async payload => {
 
     return facility;
 };
+
+export const detailsFacility = async facilityId => {
+    const facility = await FacilityModel.findById(facilityId).lean();
+
+    if (!facility) {
+        throw new AppError(404, 'Facility not found');
+    }
+
+    return facility;
+};

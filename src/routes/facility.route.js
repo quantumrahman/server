@@ -1,6 +1,10 @@
 import { Router } from 'express';
 
-import { facilityCreate } from '../controllers/facility.controller.js';
+import {
+    facilityCreate,
+    facilityDetails,
+} from '../controllers/facility.controller.js';
+
 import validateMiddleware from '../middlewares/validate.middleware.js';
 import validateSchema from '../validators/facility.validate.js';
 
@@ -10,9 +14,7 @@ facilityRoute.get('/facilities', (req, res) =>
     res.status(200).json({ success: true, message: 'GET -> All Facility' })
 );
 
-facilityRoute.get('/facilities/:id', (req, res) =>
-    res.status(200).json({ success: true, message: 'GET -> Details facility' })
-);
+facilityRoute.get('/facilities/:id', facilityDetails);
 
 facilityRoute.post(
     '/facilities',
