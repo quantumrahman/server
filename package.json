@@ -19,7 +19,9 @@
     "dependencies": {
         "and": "^0.0.3",
         "dotenv": "^17.4.2",
+        "express": "^5.2.1",
         "mongodb": "^7.3.0",
-        "mongoose": "^9.7.1"
+        "mongoose": "^9.7.1",
+        "zod": "^4.4.3"
     }
 }
