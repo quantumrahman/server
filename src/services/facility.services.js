@@ -33,3 +33,19 @@ export const allFacilities = async () => {
 
     return facilities;
 };
+
+export const updateFacility = async (facilityId, payload) => {
+    const facilityExists = await FacilityModel.findById(facilityId);
+
+    if (!facilityExists) {
+        throw new AppError(404, 'Facility not found');
+    }
+
+    const facility = await FacilityModel.findByIdAndUpdate(
+        facilityId,
+        payload,
+        { returnDocument: 'after', runValidators: true }
+    );
+
+    return facility;
+};

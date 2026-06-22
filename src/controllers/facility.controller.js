@@ -41,3 +41,20 @@ export const facilitiesAll = async (req, res, next) => {
         next(error);
     }
 };
+
+export const facilityUpdate = async (req, res, next) => {
+    try {
+        const facility = await FacilityService.updateFacility(
+            req.params.id,
+            req.body
+        );
+
+        return res.status(201).json({
+            success: true,
+            message: 'Facility update successfully',
+            data: facility,
+        });
+    } catch (error) {
+        next(error);
+    }
+};

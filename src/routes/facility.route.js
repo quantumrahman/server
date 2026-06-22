@@ -4,6 +4,7 @@ import {
     facilityCreate,
     facilityDetails,
     facilitiesAll,
+    facilityUpdate,
 } from '../controllers/facility.controller.js';
 
 import validateMiddleware from '../middlewares/validate.middleware.js';
@@ -21,8 +22,10 @@ facilityRoute.post(
     facilityCreate
 );
 
-facilityRoute.patch('/facilities/:id', (req, res) =>
-    res.status(200).json({ success: true, message: 'PATCH -> Update facility' })
+facilityRoute.patch(
+    '/facilities/:id',
+    validateMiddleware(validateSchema.partial()),
+    facilityUpdate
 );
 
 facilityRoute.delete('/facilities/:id', (req, res) =>
