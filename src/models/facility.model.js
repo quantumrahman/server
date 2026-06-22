@@ -52,7 +52,6 @@ const facilitySchema = new mongoose.Schema(
             type: String,
             required: [true, 'Owner email is required'],
             trim: true,
-            unique: true,
         },
     },
     { timestamps: true, versionKey: false }
