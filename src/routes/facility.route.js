@@ -5,6 +5,7 @@ import {
     facilityDetails,
     facilitiesAll,
     facilityUpdate,
+    facilityDelete,
 } from '../controllers/facility.controller.js';
 
 import validateMiddleware from '../middlewares/validate.middleware.js';
@@ -28,10 +29,6 @@ facilityRoute.patch(
     facilityUpdate
 );
 
-facilityRoute.delete('/facilities/:id', (req, res) =>
-    res
-        .status(200)
-        .json({ success: true, message: 'DELETE -> Delete facility' })
-);
+facilityRoute.delete('/facilities/:id', facilityDelete);
 
 export default facilityRoute;

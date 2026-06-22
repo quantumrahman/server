@@ -49,3 +49,15 @@ export const updateFacility = async (facilityId, payload) => {
 
     return facility;
 };
+
+export const deleteFacility = async facilityId => {
+    const facilityExists = await FacilityModel.findById(facilityId);
+
+    if (!facilityExists) {
+        throw new AppError(404, 'Facility not found');
+    }
+
+    const facility = await FacilityModel.findByIdAndDelete(facilityId);
+
+    return facility;
+};

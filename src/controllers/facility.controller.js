@@ -58,3 +58,17 @@ export const facilityUpdate = async (req, res, next) => {
         next(error);
     }
 };
+
+export const facilityDelete = async (req, res, next) => {
+    try {
+        const facility = await FacilityService.deleteFacility(req.params.id);
+
+        return res.status(200).json({
+            success: true,
+            message: 'Facility delete successfully',
+            data: facility,
+        });
+    } catch (error) {
+        next(error);
+    }
+};
