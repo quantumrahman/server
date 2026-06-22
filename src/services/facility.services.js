@@ -27,3 +27,9 @@ export const detailsFacility = async facilityId => {
 
     return facility;
 };
+
+export const allFacilities = async () => {
+    const facilities = await FacilityModel.find().lean();
+
+    return facilities;
+};

@@ -27,3 +27,17 @@ export const facilityDetails = async (req, res, next) => {
         next(error);
     }
 };
+
+export const facilitiesAll = async (req, res, next) => {
+    try {
+        const facilities = await FacilityService.allFacilities();
+
+        return res.status(200).json({
+            success: true,
+            message: 'Facility fetch successfully',
+            data: facilities,
+        });
+    } catch (error) {
+        next(error);
+    }
+};
