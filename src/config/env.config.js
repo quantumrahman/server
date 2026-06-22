@@ -8,6 +8,8 @@ const configure = {
     cloudinary_api_secret: process.env.CLOUDINARY_API_SECRET,
     cloudinary_api_key: process.env.CLOUDINARY_API_KEY,
     cloudinary_url: process.env.CLOUDINARY_URL,
+
+    database_uri: process.env.DATABASE_URI,
 };
 
 const config = Object.freeze(configure);
